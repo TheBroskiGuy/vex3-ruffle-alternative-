@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vex 3 - Ruffle Player</title>
+    <style>
+        /* Fill the browser window completely */
+        html, body, #ruffle-container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+    </style>
+    <!-- We load Ruffle locally from a standalone production source -->
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body>
+
+    <div id="ruffle-container"></div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            
+            const container = document.getElementById("ruffle-container");
+            container.appendChild(player);
+
+            // Pulls the file relative to this site, entirely skipping cross-domain network calls
+            player.load("vex3.swf");
+        });
+    </script>
+
+</body>
+</html>
